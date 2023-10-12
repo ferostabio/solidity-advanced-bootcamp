@@ -2,8 +2,8 @@
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
-import {DeployArrayScript} from "../script/DeployArray.s.sol";
-import {ArrayContract} from "../src/ArrayContract.sol";
+import {DeployArrayScript} from "../../script/homework_2/DeployArray.s.sol";
+import {ArrayContract} from "../../src/homework_2/ArrayContract.sol";
 
 contract ArrayLibTest is Test {
     ArrayContract public arrayContract;

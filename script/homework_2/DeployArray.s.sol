@@ -2,7 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "forge-std/Script.sol";
-import {ArrayContract} from "../src/ArrayContract.sol";
+import {ArrayContract} from "../../src/homework_2/ArrayContract.sol";
 
 contract DeployArrayScript is Script {
     function setUp() public {}

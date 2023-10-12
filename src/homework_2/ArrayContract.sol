@@ -3,6 +3,8 @@ pragma solidity ^0.8.20;
 
 import "./ArrayLib.sol";
 
+error ArrayAlreadyInitialized();
+
 contract ArrayContract {
     using ArrayLib for uint[];
 
@@ -10,7 +12,9 @@ contract ArrayContract {
 
     // Function to initialize the array from 0 to 12
     function initializeNumbers() external {
-        require(numbers.length == 0, "Array is already initialized");
+        if (numbers.length > 0) {
+            revert ArrayAlreadyInitialized();
+        }
 
         for (uint i = 0; i < 12; i++) {
             numbers.push(i);
