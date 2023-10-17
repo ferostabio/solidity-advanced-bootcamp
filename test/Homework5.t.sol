@@ -1,12 +1,12 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
-import {DeployAssemblyScript} from "../../script/homework_5/DeployAssembly.s.sol";
-import {Intro} from "../../src/homework_5/Assembly_1.sol";
-import {Add} from "../../src/homework_5/Assembly_2.sol";
-import {SubOverflow} from "../../src/homework_5/Assembly_3.sol";
-import {Scope} from "../../src/homework_5/Assembly_4.sol";
+import {DeployHomework5Script} from "../script/DeployHomework5.s.sol";
+import {Intro} from "../src/homework_5/Assembly_1.sol";
+import {Add} from "../src/homework_5/Assembly_2.sol";
+import {SubOverflow} from "../src/homework_5/Assembly_3.sol";
+import {Scope} from "../src/homework_5/Assembly_4.sol";
 
 contract ArrayLibTest is Test {
     Intro public introContract;
@@ -15,7 +15,7 @@ contract ArrayLibTest is Test {
     Scope public scopeContract;
 
     function setUp() public {
-        DeployAssemblyScript deploy = new DeployAssemblyScript();
+        DeployHomework5Script deploy = new DeployHomework5Script();
         (Intro intro, Add add, SubOverflow sub, Scope scope) = deploy.run();
         introContract = intro;
         addContract = add;

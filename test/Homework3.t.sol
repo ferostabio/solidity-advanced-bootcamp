@@ -1,11 +1,11 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
 import "forge-std/Test.sol";
-import {DeployUpgradeableScript} from "../../script/homework_3/DeployUpgradeable.s.sol";
-import {UpgradeableContract} from "../../src/homework_3/UpgradeableContract.sol";
-import {UpgradeableContractV2} from "../../src/homework_3/UpgradeableContractV2.sol";
-import {UUPSProxy} from "../../src/homework_3/UUPSProxy.sol";
+import {DeployHomework3Script} from "../script/DeployHomework3.s.sol";
+import {UpgradeableContract} from "../src/homework_3/UpgradeableContract.sol";
+import {UpgradeableContractV2} from "../src/homework_3/UpgradeableContractV2.sol";
+import {UUPSProxy} from "../src/homework_3/UUPSProxy.sol";
 
 contract ArrayLibTest is Test {
     UUPSProxy proxy;
@@ -13,7 +13,7 @@ contract ArrayLibTest is Test {
     UpgradeableContractV2 wrappedProxyV2;
 
     function setUp() public {
-        DeployUpgradeableScript script = new DeployUpgradeableScript();
+        DeployHomework3Script script = new DeployHomework3Script();
         proxy = script.run();
 
         wrappedProxyV1 = UpgradeableContract(address(proxy));
