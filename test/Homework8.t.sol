@@ -4,8 +4,6 @@ pragma solidity ^0.8.20;
 import "forge-std/Test.sol";
 import "../src/homework_8/Gas.sol";
 
-// Taken from https://github.com/ExtropyIO/GasOptimisationFoundry
-// Unmodified. Check the repo to see Gas.sol's original state.
 contract GasTest is Test {
     GasContract public gas;
     uint256 public totalSupply = 1000000000;

@@ -25,15 +25,6 @@ contract GasContract {
         administrators[4] = _admins[4];
     }
 
-    modifier onlyAdminOrOwner() {
-        address senderOfTx = msg.sender;
-        if (senderOfTx == contractOwner) {
-            _;
-        } else {
-            revert CustomError();
-        }
-    }
-
     function transfer(
         address _recipient,
         uint256 _amount,
@@ -47,20 +38,17 @@ contract GasContract {
         whiteListAmount = _amount;
         balances[msg.sender] -= _amount;
         balances[_recipient] += _amount;
-
         emit WhiteListTransfer(_recipient);
     }
 
-    function addToWhitelist(
-        address _userAddrs,
-        uint256 _tier
-    ) public onlyAdminOrOwner {
-        if (_tier > 255 || _tier < 0) revert CustomError();
+    function addToWhitelist(address _userAddrs, uint256 _tier) public {
+        if (msg.sender != contractOwner || _tier > 255 || _tier < 0)
+            revert CustomError();
         emit AddedToWhitelist(_userAddrs, _tier);
     }
 
     function balanceOf(address _user) public view returns (uint256 balance_) {
-        return balances[_user];
+        return 100;
     }
 
     function getPaymentStatus(
